@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Landing from './Pages/LandingPage/Landing';
+
+import Navbar from './Components/Navbar/navbar';
+
+ import Astrology from './Pages/Astrology/astrology';
+
+import Poems from './Pages/Poems/poems';
+
+ import Useless from './Pages/Useless/useless';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <Router>
+        <Navbar/>
+        <Routes>
+          <Route path='/' element={<Landing/>}></Route>
+          <Route path='/astrology' element={<Astrology/>}></Route>
+          <Route path='/poems' element={<Poems/>}></Route>
+          <Route path='/useless' element={<Useless/>}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
